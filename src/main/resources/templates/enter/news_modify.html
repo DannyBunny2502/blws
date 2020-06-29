@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+      
+<head th:replace="fragments/commonConfig :: config">
+<meta charset="UTF-8">
+</head>
+<header th:replace="fragments/commonHeader :: header"></header>
+<body>
+
+
+<div class="contents">
+	<div class="container">
+		<div class="padding">
+				<div class="inner_nav">
+						<a href="/">HOME</a>
+						>
+						<a href="#">블루윙스</a>
+						>
+						<a href="hire">기업소식</a>
+				</div>
+		<form th:each="news : ${newsList}" action="/news/modify" method="post">
+			<input type="hidden" name="news_no" th:value="${news.news_no}"><br>
+			제목 <input type="text" name="news_title" th:value="${news.news_title}"><br>
+			내용 <input type="text" name="news_contents" th:value="${news.news_contents}"><br>
+			첨부파일 <input type="text" name="news_attach" th:value="${news.news_attach}"><br>
+			파일타입 <input type="text" name="news_attach_type"  th:value="${news.news_attach_type}"><br>
+			<button class="button" type="submit">수정</button>
+		</form> 
+		</div>      
+    </div>    
+</div>
+
+<footer th:replace="fragments/CommonFooter :: footer"></footer>
+</body>
+</html>

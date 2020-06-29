@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+      
+<head th:replace="fragments/commonConfig :: config">
+<meta charset="UTF-8">
+</head>
+<header th:replace="fragments/commonHeader :: header"></header>
+<body>
+	
+	<div class="contents">
+		<div class="padding">
+			<div class="inner_nav">
+				<a href="/">HOME</a>
+				>
+				<a href="#">인재채용</a>
+				>
+				<a href="hire">채용안내</a>
+			</div>
+			
+			<img src="/images/recruit/hire.jpg" class="recruit_img">
+
+		</div>
+		
+		<div class="application">
+			<b><h2>입사지원하기</h2></b><br>
+			<p>입사지원서를 작성하여 등록해주세요.<br>
+				 등록하신 이메일로 채용과정을 안내해드리겠습니다.</p><br>
+			
+			<form class="form" action="/recruit/application" method="post" enctype="multipart/form-data">
+				신입/경력
+				<select  class="form-control"  name="application_career">
+					<option value="신입">신입</option>
+					<option value="경력">경력</option>
+				</select>
+				
+				지원분야
+				<select  class="form-control"  name="application_filed">
+					<option value="프론트엔드">프론트엔드</option>
+					<option value="백엔드">백엔드</option>
+					<option value="서버">서버</option>
+				</select>
+				
+				이름 <input type="text"  class="form-control"  name="application_name" placeholder="이름" required>
+
+				이메일주소<input type="text" class="form-control" name="application_email" placeholder="이메일주소" required>
+	
+	
+				입사지원서 <input type="file"  class="form-control" name="uploadfile" style="display:absolute !important;">
+	
+				<br>
+				<button class="button" type="submit" id="application_submit">입사지원서 등록</button>
+			</form>
+		</div>
+	</div>
+	
+	<footer th:replace="fragments/CommonFooter :: footer"></footer>
+	
+	
+	<!-- <div id="modal" class="modal">
+		<div class="modal_contents">
+			지원해주셔서 감사합니다.<br>좋은 결과가 있기를 바랍니다.<br>
+			<button id="modal_close" class="modal_close">확인</button>
+		</div>
+	</div> -->
+	
+	<script>
+	
+		var modal = document.getElementById('modal');
+		var btn = document.getElementById('application_submit');
+		var close = document.getElementById('modal_close');
+		
+		 btn.onclick = function() {
+	    	modal.style.display = "block";
+	    }
+	    
+	    close.onclick = function() {
+	    	modal.style.display = "none";
+	    	
+	    }
+	</script>
+	
+	<script>	
+	//미입력시 예외처리 해야함
+		$('#modal_close').on('click', function(){
+			var form = {
+					application_career : $('#application_career').val(),
+					application_filed : $('#application_filed').val(),
+					application_name : $('#application_name').val(),
+					application_email : $('#application_email').val(),
+					application_document : $('#application_document').val()
+			}
+			
+			$.ajax({
+				url:"/recruit/application",
+				type:"POST",
+				data:form,
+				success: function(data) {
+					window.location='/hire';
+					console.log("submit success :: hire application")
+				}
+			});
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" 
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+		
+<head th:replace="commonConfig :: config"></head>
+
+<header th:replace="commonHeader :: header"></header>
+
+<th:block layout:fragment="content"></th:block>
+
+<footer th:replace="commonFooter :: footer"></footer>
+
+<!-- th:replace="치환할 html 파일 위치 :: fragment 속성명" -->
+
+</html>

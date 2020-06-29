@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+      
+<head th:replace="fragments/commonConfig :: config">
+<meta charset="UTF-8">
+</head>
+<header th:replace="fragments/commonHeader :: header"></header>
+<body>
+
+
+<form action="/community/write" method="post">
+	 <input type="text" class="form-control" id="author" name="author" placeholder="아이디를 작성해주세요.">
+	 <input type="text" class="form-control" id="category" name="category" placeholder="카테고리를 작성해주세요.">
+	 <input type="text" class="form-control" id="title" name="title" placeholder="제목을 작성해주세요.">
+	 <input type="text" class="form-control" id="content" name="content" placeholder="내용을 작성해주세요.">
+	 <input type="text" class="form-control" id="attach" name="attach" placeholder="첨부파일을 작성해주세요.">
+	 <button type="submit">등록하기</button>
+</form>
+CommunityWrite
+</body>
+</html>

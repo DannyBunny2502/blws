@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+ 
+<mapper namespace="com.home.uhd.mapper.CommMapper">
+ 
+    <select id="selectComm" resultType="com.home.uhd.domain.CommVO">
+        select * from tb_comm;
+    </select>
+ 
+  	<insert id="insertComm" parameterType="com.home.uhd.domain.CommVO">
+        insert into tb_comm
+        (category, title, content, author, date, view, attach, up)
+        values 
+        (#{category}, #{title}, #{content}, #{author}, NOW(), 0, #{attach}, 0)
+    </insert>
+</mapper>
+

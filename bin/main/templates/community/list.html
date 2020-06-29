@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+      
+<head th:replace="fragments/commonConfig :: config">
+<meta charset="UTF-8">
+</head>
+<header th:replace="fragments/commonHeader :: header"></header>
+<body>
+
+
+<div class="contents">
+CommunityList
+<div class="container">
+              <table class="table">
+              <thead>
+              
+              </thead>
+              <tbody>
+                  <tr th:each="dept : ${deptList}">
+                  	<td th:text="${dept.dept_no}"></td>
+                  	<td th:text="${dept.dept_nm}"></td>
+                  </tr>
+                          
+              </tbody>
+            </table>
+               
+        </div>
+ 
+
+<a href="community/write" class="btn btn-outline-info">글쓰기</a>
+
+</div>
+
+<footer th:replace="fragments/CommonFooter :: footer"></footer>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+      
+<head th:replace="fragments/commonConfig :: config">
+<meta charset="UTF-8">
+</head>
+<header th:replace="fragments/commonHeader :: header"></header>
+<body>
+
+
+<div class="contents">
+	<div class="container">
+		<div class="padding">
+			<div class="inner_nav">
+					<a href="/">HOME</a>
+					>
+					<a href="#">블루윙스</a>
+					>
+					<a href="hire">기업소식</a>
+			</div>
+				
+			<div class="table_board">
+	           <table class="table">
+	              <thead>
+		              <tr>
+			              	<th>글번호</th>
+			              	<th>제목</th>
+			              	<th>작성자</th>
+			              	<th>작성일</th>
+			              	<th>조회수</th>
+			          </tr>
+	              </thead>
+	              <tbody>
+	                  <tr th:each="news, index : ${newsList}">
+	                  	<td th:text="${index.index}+1"></td>
+	                  	<td><a th:href="@{'/news/read?news_no='+${news.news_no}}">
+	                  			<span th:text="${news.news_title}"></span>
+	                  		  </a>
+	                  	</td>
+	                  	<td th:text="${news.news_author}"></td>
+	                  	<td th:text="${news.news_date}"></td>
+	                  	<td th:text="${news.news_view}"></td>
+	                  </tr>
+	                          
+	              </tbody>
+	            </table>
+	        		
+	        	<div class="form-group row justify-content-center">
+					<div class="w100" style="padding-right:10px">
+						<select class="form-control form-control-sm" name="searchType" id="searchType">
+							<option value="title">제목</option>
+						</select>
+					</div>
+		
+					<div class="w300" style="padding-right:10px">
+						<input type="text" class="form-control form-control-sm" name="keyword" id="keyword">
+					</div>
+					<div>
+						<button class="button" name="search" id="search">검색</button>
+						<a href="/news/write" class="button">글쓰기</a> 
+					</div>
+				</div>
+			</div>  
+		</div>         
+    </div>    
+</div>
+
+<footer th:replace="fragments/CommonFooter :: footer"></footer>
+</body>
+</html>

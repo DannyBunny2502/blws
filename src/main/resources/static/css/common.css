@@ -1,0 +1,263 @@
+@charset "UTF-8";
+
+@font-face { font-family: 'Font'; /* 폰트 패밀리 이름 주기*/ 
+				src: url('../fonts/NotoSansCJKkr-Medium.otf') format('truetype'); /*폰트 파일 주소*/ } 
+				
+body{ /* 위에서 font-face로 지정해놓은 font-family를 적용*/ 
+		font-family : 'Font' !important; 
+		font-size : 16px;
+}
+
+p {
+	padding-top:1px;
+	padding-bottom:1px;
+}
+a { 
+	color : black;
+	text-decoration:none;	
+}
+
+a:hover {
+	text-decoration:none;	
+}
+
+li { list-style:none; }
+
+header a { 
+	text-decoration:none; 	
+	color : #51728a;
+}
+
+footer {
+	background-color : #293a47;
+	width: 100%;
+    height: 80px;
+}
+footer > p {
+	font-size: 12px;
+    float: right;
+    padding-top: 30px;
+    padding-right: 120px;
+    color: #939393;
+}
+hr{ border-color : #B1AA9D; }
+
+.logo {
+	width : 180px;
+	padding-top : 17px;
+}
+
+.footerLogo {
+	width: 180px;
+    padding-top: 18px;
+    margin-left: 60px;
+}
+header { 
+	background-color : white;
+	width: 100%;
+    height: 80px;
+    padding-right : 60px;
+    padding-left : 60px;
+    position:fixed;
+    border-bottom : 1px solid #d5d5d5;
+}
+header > a { 
+	float : left; 
+	/* text-indent :-99999px; */
+	/* background-image : url("../images/logo.png"); */
+	display : block;
+	
+}
+
+.contents {
+	padding-top:80px;
+}
+
+.inner_nav {
+	padding-right : 60px;
+	padding-bottom : 30px;
+	text-align : right;
+}
+.gnb_wrap { 
+	float : right;
+	padding-top: 30px;
+	text-align : center;
+}
+.gnb_wrap > li { 
+	float : left; 
+	padding-right:40px; 
+	padding-left:40px;
+
+}
+
+/* header > nav > ul >  li { float : left; } */
+
+.gnb_sub_wrap {
+	padding-top: 40px;
+    padding-left: 0;
+    padding-right:0;
+    text-align: center;
+  	display:none;
+}
+
+.gnb_wrap:hover .gnb_sub_wrap {
+	display : block;
+	
+}
+
+.gnb_sub_wrap > li {
+	padding : 3px;
+}
+
+.gnb_sub_wrap > li:hover {
+	
+	color:white;
+}
+
+.sidenav a { 
+	text-decoration:none; 	
+	color : white;
+} 
+.sidenav {
+	background-color : #958C7B;
+	height : 100%;
+	width : 240px;
+	position : fixed;
+	z-index : 1;
+	padding-top : 30px;
+	top : 0';
+	left : 0;
+	overflow : auto;
+}
+
+
+.side_wrap { float : left; }
+.side_wrap > li {
+	text-align : left; 
+}
+.side_inner_wrap { 
+	text-align : left;
+	padding-left : 0px;
+ }
+ 
+ .side_inner_wrap > li { 
+	padding-top : 7px;
+	padding-bottom : 7px;
+ }
+ 
+ .main_contents {
+ 	background-color:#f2f2f2;
+ 	padding-right : 120px;
+    padding-left: 120px;
+    padding-bottom: 80px;
+    padding-top:80px;
+    height: 100%;
+ }
+ 
+ .slideImg{
+ 	height: 580px;
+    width: 100%;
+ }
+ 
+ .recruit_img{
+ 	display : block;
+ 	margin-right : auto;
+ 	margin-left : auto;
+ 	width:940px;
+ }
+ 
+ .padding {
+ 	padding-top : 30px;
+ 	padding-bottom : 60px;
+ }
+ 
+ .table_board > .table > thead > tr > th,
+ .table_board > .table > tbody > tr > td
+  {
+ 	text-align : center;
+ }
+ 
+ 
+ 
+    /* The Modal (background) */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        }
+    
+        /* Modal Content/Box */
+        .modal_contents {
+            background-color: #fefefe;
+            margin: 15% auto; /* 15% from the top and centered */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 50%; /* Could be more or less, depending on screen size */                          
+        }
+        /* The Close Button */
+        .modal_close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .modal_close:hover,
+        .modal_close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+ 
+ .application {
+    background: #e2e2e2;
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+ }
+ 
+ .form {
+ 	text-align:left;
+ 	padding-right:500px;
+ 	padding-left:500px;
+ }
+ 
+ .button {
+ 	background : #293a47;
+ 	color: white;
+ 	padding-top:5px;
+ 	padding-bottom:5px;
+ 	padding-right:15px;
+ 	padding-left:15px;
+ 	width:100%;
+ 	border-style:none;
+ }
+ 
+ .main_box_contents {
+ 	width: 250px;
+    height: 250px;
+    background: white;
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+.main_box2 {
+	padding-right:30px;
+}
+
+.user_wrap {
+	padding-bottom:30px;
+}
+
+.user_wrap > span {
+	padding-right : 20px;
+}

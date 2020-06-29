@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+      
+<head th:replace="fragments/commonConfig :: config">
+<meta charset="UTF-8">
+</head>
+<header th:replace="fragments/commonHeader :: header"></header>
+<body>
+
+	<div class="contents">
+		<div class="padding">
+			<div class="inner_nav">
+				<a href="/">HOME</a>
+				>
+				<a href="#">인재채용</a>
+				>
+				<a href="recruit">인재제도</a>
+			</div>
+			
+			<img src="images/recruit/talent.jpg" class="recruit_img">
+			
+			<img src="images/recruit/resources.jpg" class="recruit_img">
+			
+			<img src="images/recruit/welfare.jpg" class="recruit_img">
+		</div>
+	</div>
+	
+	<footer th:replace="fragments/CommonFooter :: footer"></footer>
+</body>
+</html>

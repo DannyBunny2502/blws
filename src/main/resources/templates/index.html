@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" 
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<meta charset="UTF-8">
+<head th:replace="fragments/commonConfig :: config"></head>
+
+<header th:replace="fragments/commonHeader :: header"></header>
+
+<!-- index.html 고유 스크립트 추가 -->
+<th:block layout:fragment="script"></th:block>
+
+<!-- <div layout:fragment="content"> -->
+<div th:fragment="pageContents">
+
+	<div class="contents">
+		<div class="slide">
+			<img src="images/main/slide1.jpg" class="slideImg">
+			<!-- <img src="images/main/slide2.jpg" class="slideImg"> -->
+		</div>
+			
+		<div class="main_contents">
+			<div class="user_wrap">
+				<span class="news_tab">기업소식</span>
+				<span class="field_tab">사업분야</span>
+				<span class="comm_tab">어울림소식</span>
+			</div>
+				<div class="main_box">
+					<table>
+						<tbody>
+							<tr th:each="news, index : ${newsList}">
+								<th:block th:if="${index.index}<3">
+									<div class="news">
+										<div class="main_box_contents">
+											<th:block th:text="${news.news_title}"></th:block>
+											<br>
+											<th:block th:text="${news.news_date}"></th:block>
+										</div>
+									</div>
+								
+								</th:block>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+	</div>
+</div>
+
+<footer th:replace="fragments/commonFooter :: footer"></footer>
+</html>
