@@ -26,7 +26,35 @@ public class EnterController {
 		return "enter/news";
 	}
 	
-	@GetMapping("/news/write") //¼¼¼Ç°ª ³Ñ°ÜÁà¾ßÇÔ
+	@PostMappring("/news")
+	public String newsListSearch(@RequestParam(defaultValue="news_contents") String keyword, @RequestParam(defaultValue="") String search) throws Exception{
+		 //í˜ì´ì§€ ê´€ë ¨ ì„¤ì •, ì‹œì‘ë²ˆí˜¸ì™€ ëë²ˆí˜¸ë¥¼ êµ¬í•´ì„œ ê°ê° ë³€ìˆ˜ì— ì €ì¥í•œë‹¤.
+		int coount = 1000;
+		
+        Pager pager = new Pager(count, curPage);
+        int start = pager.getPageBegin();
+        int end =  pager.getPageEnd();
+             
+        //mapì— ì €ì¥í•˜ê¸° ìœ„í•´ listë¥¼ ë§Œë“¤ì–´ì„œ ê²€ìƒ‰ì˜µì…˜ê³¼ í‚¤ì›Œë“œë¥¼ ì €ì¥í•œë‹¤.
+        List<MemberBoardDTO> list = memberboardservice.listAll(search_option, keyword, start, end);
+        
+        ModelAndView mav = new ModelAndView();
+        Map<String,Object> map = new HashMap<>();    //ë„˜ê¸¸ ë°ì´í„°ê°€ ë§ê¸° ë•Œë¬¸ì— í•´ì‰¬ë§µì— ì €ì¥í•œ í›„ì— modelandviewë¡œ ê°’ì„ ë„£ê³  í˜ì´ì§€ë¥¼ ì§€ì •
+        
+        map.put("list", list);                         //mapì— list(ê²Œì‹œê¸€ ëª©ë¡)ì„ listë¼ëŠ” ì´ë¦„ì˜ ë³€ìˆ˜ë¡œ ìë£Œë¥¼ ì €ì¥í•¨.
+        map.put("pager", pager);
+        map.put("count", count);
+        map.put("search_option", search_option);
+        map.put("keyword", keyword);
+        mav.addObject("map", map);                    //modelandviewì— mapë¥¼ ì €ì¥
+        
+        System.out.println("map : "+map);
+        mav.setViewName("board/memberboard");                //ìë£Œë¥¼ ë„˜ê¸¸ ë·°ì˜ ì´ë¦„
+        
+        return mav;    //ê²Œì‹œíŒ í˜ì´ì§€ë¡œ ì´ë™
+	}
+	
+	@GetMapping("/news/write") //ï¿½ï¿½ï¿½Ç°ï¿½ ï¿½Ñ°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	public String newsWriteGet (Model model) throws Exception {
 		return "enter/news_write";
 	}
@@ -35,7 +63,7 @@ public class EnterController {
 	public String newsWritePost (Model model, NewsVO vo) throws Exception {
 		
 		enterMapper.insertNews(vo);
-		return "redirect:/news"; //±â¾÷¼Ò°³ ¸ñ·ÏÀ¸·Î µ¹¾Æ°¨
+		return "redirect:/news"; //ï¿½ï¿½ï¿½ï¿½Ò°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Æ°ï¿½
 	}
 	
 	@GetMapping("/news/read")
@@ -51,21 +79,21 @@ public class EnterController {
 	public String newsDelete (@RequestParam("news_no") int news_no, Model model) throws Exception {
 		
 		enterMapper.deleteNews(news_no);
-		return "redirect:/news"; //±â¾÷¼Ò°³ ¸ñ·ÏÀ¸·Î µ¹¾Æ°¨
+		return "redirect:/news"; //ï¿½ï¿½ï¿½ï¿½Ò°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Æ°ï¿½
 	}
 	
 	@GetMapping("/news/modify")
 	public String newsModifyGet (@RequestParam("news_no") int news_no, Model model) throws Exception {
 		
 		model.addAttribute("newsList", enterMapper.readNews(news_no));
-		return "enter/news_modify"; //±â¾÷¼Ò°³ ¸ñ·ÏÀ¸·Î µ¹¾Æ°¨
+		return "enter/news_modify"; //ï¿½ï¿½ï¿½ï¿½Ò°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Æ°ï¿½
 	}
 	
 	@PostMapping("/news/modify")
 	public String newsModifyPost (NewsVO vo, Model model) throws Exception {
 		
 		enterMapper.modifyNews(vo);
-		return "redirect:/news/read?news_no="+vo.getNews_no(); //±â¾÷¼Ò°³ ¸ñ·ÏÀ¸·Î µ¹¾Æ°¨
+		return "redirect:/news/read?news_no="+vo.getNews_no(); //ï¿½ï¿½ï¿½ï¿½Ò°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Æ°ï¿½
 	}
 	
 }

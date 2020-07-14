@@ -13,6 +13,7 @@ public class NewsVO {
 	private String news_attach;
 	private String news_attach_type;
 	private int news_view;
+	
 	public int getNews_no() {
 		return news_no;
 	}

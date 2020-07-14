@@ -1,6 +1,6 @@
 package com.home.uhd.mapper;
 
-import java.util.List; //List ÇÔ¼ö »ç¿ëÀ» À§ÇÔ
+import java.util.List; //List ï¿½Ô¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 import com.home.uhd.domain.NewsVO; 
 
 public interface EnterMapper {

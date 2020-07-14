@@ -17,7 +17,7 @@ import com.home.uhd.mapper.RecrMapper;
 @Controller
 public class RecrContoller {
 	
-	private static final String UPLOAD_PATH = "file:///C:\\Users\\user\\Documents\\workspace-spring-tool-suite-4-4.6.0.RELEASE\\Doc";
+	private static final String UPLOAD_PATH = "C:\\Users\\solda\\Documents\\files";
 	
 	@Autowired
 	RecrMapper recrMapper;
@@ -25,34 +25,34 @@ public class RecrContoller {
 	@GetMapping("/recruit")
 	public String Recruit (Model model) {
 
-		return "recruit/recruit"; // Ä¿¹Â´ÏÆ¼ > select
+		return "recruit/recruit"; // Ä¿ï¿½Â´ï¿½Æ¼ > select
 	}
 	
 	@GetMapping("/hire")
 	public String Hire (Model model) {
 
-		return "recruit/hire"; // Ä¿¹Â´ÏÆ¼ > select
+		return "recruit/hire"; // Ä¿ï¿½Â´ï¿½Æ¼ > select
 	}
 	
 	
 	@PostMapping("/recruit/application")
 	public String Application(ApplVO vo, MultipartFile uploadfile) throws Exception {
-		vo.setApplication_document(saveFile(uploadfile));  // Áö¿ø¼­·ù ÆÄÀÏ ÀúÀå
+		vo.setApplication_document(saveFile(uploadfile));  // íŒŒì¼ëª… ì €ì¥
 		recrMapper.insertApplication(vo);
 		return "recruit/hire";
 	}
 	
 	private String saveFile(MultipartFile file) {
-		// ÆÄÀÏ ÀÌ¸§ º¯°æ
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½
 	    UUID uuid = UUID.randomUUID();
 	    String saveName = uuid + "_" + file.getOriginalFilename();
 
 
-	    // ÀúÀåÇÒ File °´Ã¼¸¦ »ı¼º(²®µ¥±â ÆÄÀÏ)
-	    File saveFile = new File(UPLOAD_PATH,saveName); // ÀúÀåÇÒ Æú´õ ÀÌ¸§, ÀúÀåÇÒ ÆÄÀÏ ÀÌ¸§
+	    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ File ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
+	    File saveFile = new File(UPLOAD_PATH,saveName); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½
 
 	    try {
-	        file.transferTo(saveFile); // ¾÷·Îµå ÆÄÀÏ¿¡ saveFileÀÌ¶ó´Â ²®µ¥±â ÀÔÈû
+	        file.transferTo(saveFile); // ï¿½ï¿½ï¿½Îµï¿½ ï¿½ï¿½ï¿½Ï¿ï¿½ saveFileï¿½Ì¶ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	    } catch (IOException e) {
 	        e.printStackTrace();
 	        return null;

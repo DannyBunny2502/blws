@@ -3,7 +3,7 @@
 xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <meta charset="UTF-8">
 <head th:replace="fragments/commonConfig :: config"></head>
-
+<body>
 <header th:replace="fragments/commonHeader :: header"></header>
 
 <!-- index.html 고유 스크립트 추가 -->
@@ -12,11 +12,47 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <!-- <div layout:fragment="content"> -->
 <div th:fragment="pageContents">
 
-	<div class="contents">
-		<div class="slide">
-			<img src="images/main/slide1.jpg" class="slideImg">
-			<!-- <img src="images/main/slide2.jpg" class="slideImg"> -->
-		</div>
+	<!-- 메인 슬라이드 -->
+				
+				<div class="slideshow-container">
+				
+				
+					<div class="dots">
+						<div class="dots_item">
+							<span class="dot" onclick="currentSlide(1)"></span> 
+							
+							<span class="dot" onclick="currentSlide(2)"></span>
+							
+							<span class="dot" onclick="currentSlide(3)"></span>
+						</div>
+					</div>
+					
+					<div class="mySlides fade2">
+					
+					<img class="main_slideImg" src="/images/main/slide1.jpg">
+					
+					<div class="text">자유로운 소통을 추구하는 기업</div>
+					
+					</div>
+					
+					<div class="mySlides fade2">
+					
+					<img class="main_slideImg" src="/images/main/slide2.jpg">
+					
+					<div class="text">창조적 혁신을 추구하는 기업</div>
+					
+					</div>
+					
+					<div class="mySlides fade2">
+					
+					<img class="main_slideImg" src="/images/main/slide1.jpg">
+					
+					<div class="text">고객만족을 실현하는 기업</div>
+					
+					</div>
+
+				</div>
+				
 			
 		<div class="main_contents">
 			<div class="user_wrap">
@@ -24,26 +60,84 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 				<span class="field_tab">사업분야</span>
 				<span class="comm_tab">어울림소식</span>
 			</div>
-				<div class="main_box">
-					<table>
-						<tbody>
-							<tr th:each="news, index : ${newsList}">
-								<th:block th:if="${index.index}<3">
-									<div class="news">
-										<div class="main_box_contents">
-											<th:block th:text="${news.news_title}"></th:block>
-											<br>
-											<th:block th:text="${news.news_date}"></th:block>
-										</div>
-									</div>
+		
+			<div class="main_box">
+				<ul class="main_box_item" th:each="news, index : ${newsList}">
+					<li th:if="${index.index}<3">
+									
+					<span class="main_box_contents">
+						<span class="title" th:text="${news.news_title}"></span>
+						<br><br>
+						<span th:text="${news.news_contents}"></span>
+						<br>
+						<span class="date" th:text="${news.news_date}"></span>
+					</span>
+									
 								
-								</th:block>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-	</div>
+					</li>
+				</ul>	
+			</div>
+		</div>
+		
+	
+
 </div>
 
 <footer th:replace="fragments/commonFooter :: footer"></footer>
+
+<script>
+//슬라이드 스크립
+
+var slideIndex = 1;
+
+showSlides(slideIndex);
+setTimeout(showSlides(2),2000);
+
+function plusSlides(n) {
+
+  showSlides(slideIndex += n);
+
+}
+
+function currentSlide(n) {
+
+  showSlides(slideIndex = n);
+
+}
+
+function showSlides(n) {
+
+  var i;
+
+  var slides = document.getElementsByClassName("mySlides");
+
+  var dots = document.getElementsByClassName("dot");
+
+  if (n > slides.length) {slideIndex = 1}
+
+  if (n < 1) {slideIndex = slides.length}
+
+  for (i = 0; i < slides.length; i++) {
+
+      slides[i].style.display = "none";
+
+  }
+
+  for (i = 0; i < dots.length; i++) {
+
+      dots[i].className = dots[i].className.replace(" active", "");
+
+  }
+
+  slides[slideIndex-1].style.display = "block";
+
+  dots[slideIndex-1].className += " active";
+
+}
+
+</script>
+
+</body>
+
 </html>
+

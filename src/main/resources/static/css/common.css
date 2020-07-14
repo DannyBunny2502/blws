@@ -5,7 +5,7 @@
 				
 body{ /* 위에서 font-face로 지정해놓은 font-family를 적용*/ 
 		font-family : 'Font' !important; 
-		font-size : 16px;
+		font-size : 26px;
 }
 
 p {
@@ -29,37 +29,39 @@ header a {
 }
 
 footer {
-	background-color : #293a47;
-	width: 100%;
-    height: 80px;
+	background-color: #293a47;
+    width: 100%;
+    height: 200px;
 }
 footer > p {
-	font-size: 12px;
+	font-size: 18px;
     float: right;
-    padding-top: 30px;
-    padding-right: 120px;
+    padding-top: 85px;
+    padding-right: 380px;
     color: #939393;
 }
 hr{ border-color : #B1AA9D; }
 
 .logo {
-	width : 180px;
-	padding-top : 17px;
+	width: 250px;
+    padding-top: 19px;
 }
 
 .footerLogo {
-	width: 180px;
-    padding-top: 18px;
-    margin-left: 60px;
+	width: 250px;
+    padding-top: 70px;
+    margin-left: 380px;
 }
 header { 
-	background-color : white;
-	width: 100%;
-    height: 80px;
-    padding-right : 60px;
-    padding-left : 60px;
-    position:fixed;
-    border-bottom : 1px solid #d5d5d5;
+	    background-color: white;
+    width: 100%;
+    height: 100px;
+    padding-right: 380px;
+    padding-left: 380px;
+    position: fixed;
+    border-bottom: 1px solid #d5d5d5;
+    z-index: 100;
+    font-size: 26px;
 }
 header > a { 
 	float : left; 
@@ -70,13 +72,13 @@ header > a {
 }
 
 .contents {
-	padding-top:80px;
+	padding-top:100px;
 }
 
 .inner_nav {
 	padding-right : 60px;
-	padding-bottom : 30px;
-	text-align : right;
+	padding-bottom : 80px;
+	text-align : left;
 }
 .gnb_wrap { 
 	float : right;
@@ -154,10 +156,6 @@ header > a {
     height: 100%;
  }
  
- .slideImg{
- 	height: 580px;
-    width: 100%;
- }
  
  .recruit_img{
  	display : block;
@@ -166,9 +164,8 @@ header > a {
  	width:940px;
  }
  
- .padding {
- 	padding-top : 30px;
- 	padding-bottom : 60px;
+ .board_padding {
+ 	padding : 80px 380px 120px 380px
  }
  
  .table_board > .table > thead > tr > th,
@@ -228,6 +225,11 @@ header > a {
  	padding-left:500px;
  }
  
+ .search {
+ 	text-align : center;
+ 	padding-top:60px;
+ }
+ 
  .button {
  	background : #293a47;
  	color: white;
@@ -235,29 +237,187 @@ header > a {
  	padding-bottom:5px;
  	padding-right:15px;
  	padding-left:15px;
- 	width:100%;
  	border-style:none;
  }
- 
+
  .main_box_contents {
- 	width: 250px;
-    height: 250px;
+ 	width: 550px;
+    height: 550px;
     background: white;
     text-align: center;
-    padding-top: 50px;
-    padding-bottom: 50px;
-    padding-right: 20px;
-    padding-left: 20px;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    /* padding-right: 20px; */
+    /* padding-left: 20px; */
+    margin: 30px;
+    float: right;
 }
 
-.main_box2 {
-	padding-right:30px;
+ .main_box_item {
+ 	display : inline-block;
 }
+
+
+ .main_box {
+ 	text-align:center;
+}
+
+.title {
+	font-size: 35px;
+    font-weight: bold;
+}
+
+.date {
+	font-size: 22px;
+    color : gray;
+}
+
 
 .user_wrap {
-	padding-bottom:30px;
+	padding-bottom:50px;
 }
 
 .user_wrap > span {
 	padding-right : 20px;
+}
+
+
+
+
+
+
+
+
+
+* {box-sizing:border-box}
+
+body {font-family: Verdana,sans-serif;margin:0}
+
+/* Slideshow container */
+
+.slideshow-container {
+
+width: 100%;
+
+position: static;
+
+margin: auto;
+
+}
+
+.main_slideImg{
+    width: 100%;
+    height: 1200px;
+    filter: brightness(0.65);
+    z-index: -99999;
+    position: relative;
+}
+
+/* Position the "next button" to the right */
+
+.next {
+
+  right: 0;
+
+  border-radius: 3px 0 0 3px;
+
+}
+
+
+/* Caption text */
+
+.text {
+    color: #f2f2f2;
+    font-size: 64px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 1000px;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+
+}
+
+/* Number text (1/3 etc) */
+
+.numbertext {
+
+  color: #f2f2f2;
+
+  font-size: 12px;
+
+  padding: 8px 12px;
+
+  position: absolute;
+
+  top: 0;
+
+}
+
+/* The dots/bullets/indicators */
+
+.dot {
+cursor: pointer;
+    height: 30px;
+    width: 30px;
+    margin: 0 12px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+
+}
+.dots{
+   top: 1100px;
+    position: relative;
+    text-align: center;
+}
+
+
+.dots_item{
+	display:inline-block;	
+}
+
+.active, .dot:hover {
+
+  background-color: #293a47;
+
+}
+
+/* Fading animation */
+
+.fade2 {
+
+  -webkit-animation-name: fade;
+
+  -webkit-animation-duration: 0.5s;
+
+  animation-name: fade;
+
+  animation-duration: 5s;
+
+}
+
+@-webkit-keyframes fade2 {
+
+  from {opacity: .4}
+
+  to {opacity: 1}
+
+}
+
+@keyframes fade2 {
+
+  from {opacity: .4}
+
+  to {opacity: 1}
+
+}
+
+/* On smaller screens, decrease text size */
+
+@media only screen and (max-width: 300px) {
+
+  .slprev, .slnext,.text {font-size: 11px}
+
 }

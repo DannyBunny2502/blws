@@ -27,7 +27,8 @@
 			<p>입사지원서를 작성하여 등록해주세요.<br>
 				 등록하신 이메일로 채용과정을 안내해드리겠습니다.</p><br>
 			
-			<form class="form" action="/recruit/application" method="post" enctype="multipart/form-data">
+			<form role="form" th:object=${fileBoardVO} class="form" th:action="@{/recruit/application}"
+					method="post" enctype="multipart/form-data">
 				신입/경력
 				<select  class="form-control"  name="application_career">
 					<option value="신입">신입</option>
@@ -46,7 +47,7 @@
 				이메일주소<input type="text" class="form-control" name="application_email" placeholder="이메일주소" required>
 	
 	
-				입사지원서 <input type="file"  class="form-control" name="uploadfile" style="display:absolute !important;">
+				입사지원서 <input type="file"  class="form-control" name="uploadfile">
 	
 				<br>
 				<button class="button" type="submit" id="application_submit">입사지원서 등록</button>
